@@ -1,24 +1,19 @@
-// ideas.js
-const axios = require('axios');
-const URL = 'https://fund-raising-project-server-side.azurewebsites.net/ideas';
+const ideasUrl =
+    'https://fund-raising-project-server-side.azurewebsites.net/ideas';
 
-function getIdeas() {
-    return axios
-        .get(URL)
-        .then((response) => {
-            const ideas = response.data;
-
-            if (!Array.isArray(ideas)) {
-                throw new Error('Data should be an array.');
-            }
-
-            return ideas;
-        })
-        .catch((error) => {
-            throw new Error(
-                `Failed to fetch ideas from the server: ${error.message}`
-            );
-        });
+async function getIdeas() {
+    try {
+        const response = await fetch(ideasUrl);
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(
+            `An error occurred while fetching ideas: ${error.message}`
+        );
+        throw error;
+    }
 }
 
 module.exports = getIdeas;
