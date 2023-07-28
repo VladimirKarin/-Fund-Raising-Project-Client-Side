@@ -7,7 +7,7 @@ async function getIdeas() {
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
-        return await response.json();
+        return response.json();
     } catch (error) {
         console.error(
             `An error occurred while fetching ideas: ${error.message}`
