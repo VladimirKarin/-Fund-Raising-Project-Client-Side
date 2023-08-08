@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { styled } from '@mui/system';
 import { createDonation } from '@/data/donations';
 import { Form } from '../components/Form';
+import { DonateButton } from '../components/Buttons/DonateButton';
 
 const FormContainer = styled('div')({});
 const RootContainer = styled('div')({});
@@ -47,7 +48,7 @@ const DonationForm = (props) => {
                     handleSumChange={handleSumChange}
                     handleNameChange={handleNameChange}
                 />
-                <ButtonComponent handleSubmit={handleSubmit} />
+                <DonateButton handleSubmit={handleSubmit} />
             </FormContainer>
         </RootContainer>
     );
