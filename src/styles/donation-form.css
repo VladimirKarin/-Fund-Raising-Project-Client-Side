@@ -1,28 +1,47 @@
-/* Donations Form */
-.form-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.form {
-    width: 25vw;
-    height: 75vh;
-    margin: 5%;
-    background-color: rgba(255, 255, 255, 1);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+:root {
+    --spacing: 8px;
+    --primary-color: #1976d2;
 }
 
-.donation-form {
+.root-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1),
+        rgba(255, 255, 255, 0.25)
+    );
+}
+
+.donation-form-wrapper {
+    display: flex;
     flex-direction: column;
-    gap: 16px; /* Space between text fields and button */
-    width: 250px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: var(--spacing);
+    background-color: #fff;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+
+    @media (min-width: 320px) and (max-width: 480px),
+        (min-width: 481px) and (max-width: 768px),
+        (min-width: 769px) and (max-width: 1024px),
+        (min-width: 1025px) and (max-width: 1200px) {
+        width: 50%;
+    }
+}
+
+div > .donation-form-wrapper > h1 {
+    margin-bottom: var(--spacing);
+}
+
+/* Style for the "Donate" button */
+.submit-btn {
+    margin-top: auto; /* Add margin to the top to create space */
+    width: 100%; /* Make the button occupy the full width */
+    text-align: center; /* Center the button text */
 }

@@ -13,6 +13,6 @@ findIdea('a6bbff48-113a-46fb-9338-9e5844275e1f')
     .catch((error) => console.error(error));
 */
 //FR-81 Function that create a donation
-createDonation('5001b5d8-8b31-41d2-a02c-731e77d06d76', null, 90, 'Vovchik')
+createDonation('b8f40262-d265-419d-a769-e0299901b73b', null, 10, 'Vovchik')
     .then((response) => console.log(response))
     .catch((error) => console.error(error));
