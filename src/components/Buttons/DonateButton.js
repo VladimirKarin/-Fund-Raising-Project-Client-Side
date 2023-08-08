@@ -1,10 +1,17 @@
 import React from 'react';
 import { Button } from '@mui/material';
 
-const DonateButton = () => {
+const DonateButton = ({ handleSubmit }) => {
     return (
-        <Button variant="contained" color="secondary" size="medium">
-            Donate
+        <Button
+            className="submit-btn"
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={handleSubmit}
+        >
+            Submit
         </Button>
     );
 };
