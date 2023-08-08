@@ -38,10 +38,3 @@
 div > .donation-form-wrapper > h1 {
     margin-bottom: var(--spacing);
 }
-
-/* Style for the "Donate" button */
-.submit-btn {
-    margin-top: auto; /* Add margin to the top to create space */
-    width: 100%; /* Make the button occupy the full width */
-    text-align: center; /* Center the button text */
-}
