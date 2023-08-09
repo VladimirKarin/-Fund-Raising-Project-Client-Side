@@ -1,9 +1,10 @@
+import ShowMore from '@/components/Buttons/ShowMore';
 import React from 'react';
 
 const HomePage = () => {
     return (
         <div>
-            <h1>Welcome to the HomePage 5</h1>
+            <h1>Fund-Raising-Project Client Side</h1>
         </div>
     );
 };
