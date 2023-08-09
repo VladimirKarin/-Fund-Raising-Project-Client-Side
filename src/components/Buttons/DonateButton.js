@@ -4,14 +4,14 @@ import { Button } from '@mui/material';
 const DonateButton = ({ handleSubmit }) => {
     return (
         <Button
-            className="submit-btn"
+            className="donate-button"
             type="submit"
             variant="contained"
             color="primary"
             size="large"
             onClick={handleSubmit}
         >
-            Submit
+            Donate
         </Button>
     );
 };
