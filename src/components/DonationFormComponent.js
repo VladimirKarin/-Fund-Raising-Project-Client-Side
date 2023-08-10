@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/system';
 import { createDonation } from '@/data/donations';
-import { Form } from '../components/Form';
-import { DonateButton } from '../components/Buttons/DonateButton';
+import DonationForm from './Forms/DonationForm';
+import DonateButton from './Buttons/DonateButton';
 
 const FormContainer = styled('div')({});
 const RootContainer = styled('div')({});
 
-const DonationForm = (props) => {
+const DonationFormComponent = (props) => {
     const { ideaId, userId } = props;
     const [sum, setSum] = useState(0);
     const [name, setName] = useState('');
@@ -42,7 +42,7 @@ const DonationForm = (props) => {
         <RootContainer className="root-container">
             <FormContainer className="donation-form-wrapper">
                 <h1>Donation Form</h1>
-                <Form
+                <DonationForm
                     sum={sum}
                     name={name}
                     handleSumChange={handleSumChange}
@@ -54,4 +54,4 @@ const DonationForm = (props) => {
     );
 };
 
-export default DonationForm;
+export default DonationFormComponent;
