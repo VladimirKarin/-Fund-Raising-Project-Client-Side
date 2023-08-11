@@ -14,6 +14,8 @@ function IdeaCard(props) {
 
     const description = idea.description.slice(0, 150); // Limit length of the description here
     const altText = `picture of ${idea.header}`;
+    const URL = 'https://fund-raising-project-server-side.azurewebsites.net/';
+    const href = `${URL}ideas/${idea.id}`;
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -34,7 +36,7 @@ function IdeaCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <ShowMoreButton idea={idea.id} />{' '}
+                <ShowMoreButton href={href} />{' '}
             </CardActions>
         </Card>
     );
