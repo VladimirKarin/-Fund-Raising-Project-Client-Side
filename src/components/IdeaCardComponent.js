@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
+import { PropTypes } from '@mui/material';
 import ShowMoreButton from './Buttons/ShowMore';
 
 function IdeaCard(props) {
@@ -41,4 +42,13 @@ function IdeaCard(props) {
         </Card>
     );
 }
+
+IdeaCard.propTypes = {
+    idea: PropTypes.shape({
+        id: PropTypes.string,
+        picture: PropTypes.string,
+        header: PropTypes.string,
+        description: PropTypes.string,
+    }).isRequired,
+};
 export default IdeaCard;

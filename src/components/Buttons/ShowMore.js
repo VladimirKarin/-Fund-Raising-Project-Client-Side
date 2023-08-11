@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import Button from '@mui/material/Button';
+import { PropTypes } from '@mui/material';
 
 const ShowMoreButton = ({ href }) => {
     return (
@@ -10,5 +11,9 @@ const ShowMoreButton = ({ href }) => {
             </Button>
         </Link>
     );
+};
+
+ShowMoreButton.propTypes = {
+    href: PropTypes.string.isRequired,
 };
 export default ShowMoreButton;

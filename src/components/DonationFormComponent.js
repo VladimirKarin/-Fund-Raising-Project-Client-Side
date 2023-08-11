@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { styled } from '@mui/system';
+import { PropTypes } from '@mui/material';
 import { createDonation } from '@/data/donations';
 import DonationForm from './Forms/DonationForm';
 import DonateButton from './Buttons/DonateButton';
@@ -52,6 +53,11 @@ const DonationFormComponent = (props) => {
             </FormContainer>
         </RootContainer>
     );
+};
+
+DonationFormComponent.propTypes = {
+    ideaId: PropTypes.string.isRequired,
+    userId: PropTypes.string,
 };
 
 export default DonationFormComponent;
