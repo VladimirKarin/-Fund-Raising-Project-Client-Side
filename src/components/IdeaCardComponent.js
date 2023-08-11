@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
-import { PropTypes } from '@mui/material';
+import { propTypes } from '@mui/material';
 import ShowMoreButton from './Buttons/ShowMore';
 
 function IdeaCard(props) {
@@ -15,7 +15,7 @@ function IdeaCard(props) {
 
     const description = idea.description.slice(0, 150); // Limit length of the description here
     const altText = `picture of ${idea.header}`;
-    const URL = 'https://fund-raising-project-server-side.azurewebsites.net/';
+    const URL = process.env.NEXT_PUBLIC_SERVER_URL;
     const href = `${URL}ideas/${idea.id}`;
 
     return (
