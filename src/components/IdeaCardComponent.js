@@ -14,10 +14,12 @@ function IdeaCard(props) {
     function shortenDescription(idea) {
         if (idea.description.length > 150) {
             return idea.description.slice(0, 150) + '...';
+        } else {
+            return idea.description;
         }
     }
 
-    const limitedLengthDescroption = shortenDescription(idea);
+    const limitedLengthDescription = shortenDescription(idea);
     const altText = `picture of ${idea.header}`;
     const href = `${process.env.API_URL}ideas/${idea.id}`;
 
@@ -35,7 +37,7 @@ function IdeaCard(props) {
                         {idea.header}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {limitedLengthDescroption}
+                        {limitedLengthDescription}
                     </Typography>
                 </CardContent>
             </CardActionArea>
