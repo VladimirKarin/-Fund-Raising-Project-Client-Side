@@ -14,9 +14,8 @@ function IdeaCard(props) {
     function shortenDescription(idea) {
         if (idea.description.length > 150) {
             return idea.description.slice(0, 150) + '...';
-        } else {
-            return idea.description;
         }
+        return idea.description;
     }
 
     const limitedLengthDescription = shortenDescription(idea);
