@@ -9,13 +9,17 @@ import ShowMoreButton from './Buttons/ShowMore';
 function IdeaCard(props) {
     const { idea } = props;
 
-    // Null checks
     if (!idea) return null;
 
-    const description = idea.description.slice(0, 150); // Limit length of the description here
+    function shortenDescription(idea) {
+        if (idea.description.length > 150) {
+            return idea.description.slice(0, 150) + '...';
+        }
+    }
+
+    const limitedLengthDescroption = shortenDescription(idea);
     const altText = `picture of ${idea.header}`;
-    const URL = 'https://fund-raising-project-server-side.azurewebsites.net/';
-    const href = `${URL}ideas/${idea.id}`;
+    const href = `${process.env.API_URL}ideas/${idea.id}`;
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -31,7 +35,7 @@ function IdeaCard(props) {
                         {idea.header}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {description}
+                        {limitedLengthDescroption}
                     </Typography>
                 </CardContent>
             </CardActionArea>
