@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 
-import '../styles/IdeasDonationProgressBar.css';
-
 const IdeasDonationProgressBar = ({ idea }) => {
     const [progress, setProgress] = useState(0);
 

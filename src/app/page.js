@@ -1,9 +1,5 @@
-import DonationForm from '@/components/DonationForm';
-import DonateButton from '@/components/Buttons/DonateButton';
-
 import React from 'react';
 import '../styles/styles.css';
-import { LinearProgress } from '@mui/material';
 import IdeasDonationProgressBar from '@/components/ProgressBar';
 
 const idea = {
@@ -32,7 +28,7 @@ const idea = {
 };
 const HomePage = () => {
     return (
-        <div>
+        <div className="home-page">
             <h1>Fund-Raising-Project Client Side</h1>
             {/* <DonationForm
                 ideaId="b8f40262-d265-419d-a769-e0299901b73b"
