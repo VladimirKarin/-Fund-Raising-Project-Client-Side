@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/styles.css';
+import DonationFormComponent from '@/components/DonationFormComponent';
+import CardComponent from '../components/IdeaCardComponent';
 import IdeasDonationProgressBar from '@/components/ProgressBar';
 
 const idea = {
@@ -35,6 +37,7 @@ const HomePage = () => {
                 userId="6fba75be-1f13-449e-b8ee-0d9287d70208"
             /> */}
             <IdeasDonationProgressBar idea={idea} />
+
         </div>
     );
 };

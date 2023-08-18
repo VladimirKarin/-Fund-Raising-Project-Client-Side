@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField, Box } from '@mui/material';
 
-const FormComponent = ({ sum, name, handleSumChange, handleNameChange }) => {
+const DonationForm = ({ sum, name, handleSumChange, handleNameChange }) => {
     return (
         <form>
             <Box marginBottom={2}>
@@ -29,4 +29,4 @@ const FormComponent = ({ sum, name, handleSumChange, handleNameChange }) => {
     );
 };
 
-export default FormComponent;
+export default DonationForm;
