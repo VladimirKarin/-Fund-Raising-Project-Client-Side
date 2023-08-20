@@ -4,37 +4,39 @@ import { Button, Grid } from '@mui/material';
 import IdeaCardComponent from './IdeaCardComponent';
 
 const IdeasContainer = ({ ideas }) => {
-    const cardsPerPage = 3;
+    const cardsPerPage = 5;
     const [currentPage, setCurrentPage] = useState(0);
-    const [visibleIdeas, setVisibleIdeas] = useState([]);
+    const [resolvedIdeas, setResolvedIdeas] = useState([]);
+    const [visibleIdeasSlice, setVisibleIdeasSlice] = useState([]);
 
     useEffect(() => {
         if (ideas instanceof Promise) {
             ideas.then((resolvedIdeas) => {
-                const startCardIndex = currentPage * cardsPerPage;
-                const visibleIdeasSlice = resolvedIdeas.slice(
-                    startCardIndex,
-                    startCardIndex + cardsPerPage
-                );
-
-                setVisibleIdeas(resolvedIdeas);
-                setVisibleIdeas(visibleIdeasSlice);
+                setResolvedIdeas(resolvedIdeas);
             });
         } else {
-            setVisibleIdeas(ideas);
-
-            const startCardIndex = currentPage * cardsPerPage;
-            const visibleIdeasSlice = ideas.slice(
-                startCardIndex,
-                startCardIndex + cardsPerPage
-            );
-            setVisibleIdeas(visibleIdeasSlice);
+            setResolvedIdeas(ideas);
         }
-    }, [ideas, currentPage]);
+    }, [ideas]);
+
+    useEffect(() => {
+        if (resolvedIdeas.length > 0) {
+            const startCardIndex = currentPage * cardsPerPage;
+            const endCardIndex = startCardIndex + cardsPerPage;
+            const visibleIdeasSlice = resolvedIdeas.slice(
+                startCardIndex,
+                endCardIndex
+            );
+            setVisibleIdeasSlice(visibleIdeasSlice);
+        }
+    }, [resolvedIdeas, currentPage]);
 
     const handleNextPage = () => {
         setCurrentPage((prevPage) =>
-            Math.min(prevPage + 1, Math.ceil(ideas.length / cardsPerPage) - 1)
+            Math.min(
+                prevPage + 1,
+                Math.ceil(resolvedIdeas.length / cardsPerPage) - 1
+            )
         );
     };
 
@@ -45,7 +47,7 @@ const IdeasContainer = ({ ideas }) => {
     return (
         <div>
             <Grid container spacing={2}>
-                {visibleIdeas.map((idea) => (
+                {visibleIdeasSlice.map((idea) => (
                     <Grid item key={idea.id} xs={12} sm={6} md={4}>
                         <IdeaCardComponent idea={idea} />
                     </Grid>
@@ -65,7 +67,7 @@ const IdeasContainer = ({ ideas }) => {
                     color="primary"
                     disabled={
                         currentPage ===
-                        Math.ceil(ideas.length / cardsPerPage) - 1
+                        Math.ceil(resolvedIdeas.length / cardsPerPage) - 1
                     }
                     onClick={handleNextPage}
                 >
