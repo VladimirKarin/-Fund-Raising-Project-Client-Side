@@ -4,7 +4,7 @@ import { Button, Grid } from '@mui/material';
 import IdeaCardComponent from './IdeaCardComponent';
 
 const IdeasContainer = ({ ideas }) => {
-    const cardsPerPage = 5;
+    const cardsPerPage = 3;
     const [currentPage, setCurrentPage] = useState(0);
     const [resolvedIdeas, setResolvedIdeas] = useState([]);
     const [visibleIdeasSlice, setVisibleIdeasSlice] = useState([]);
