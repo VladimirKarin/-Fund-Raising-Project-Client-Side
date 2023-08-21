@@ -1,4 +1,5 @@
 'use client';
+'use client';
 import React, { useEffect, useState } from 'react';
 import { Button, Grid } from '@mui/material';
 import IdeaCardComponent from './IdeaCardComponent';
@@ -6,37 +7,20 @@ import IdeaCardComponent from './IdeaCardComponent';
 const IdeasContainer = ({ ideas }) => {
     const cardsPerPage = 3;
     const [currentPage, setCurrentPage] = useState(0);
-    const [resolvedIdeas, setResolvedIdeas] = useState([]);
     const [visibleIdeasSlice, setVisibleIdeasSlice] = useState([]);
 
     useEffect(() => {
-        if (ideas instanceof Promise) {
-            ideas.then((resolvedIdeas) => {
-                setResolvedIdeas(resolvedIdeas);
-            });
-        } else {
-            setResolvedIdeas(ideas);
-        }
-    }, [ideas]);
-
-    useEffect(() => {
-        if (resolvedIdeas.length > 0) {
+        if (ideas.length > 0) {
             const startCardIndex = currentPage * cardsPerPage;
             const endCardIndex = startCardIndex + cardsPerPage;
-            const visibleIdeasSlice = resolvedIdeas.slice(
-                startCardIndex,
-                endCardIndex
-            );
+            const visibleIdeasSlice = ideas.slice(startCardIndex, endCardIndex);
             setVisibleIdeasSlice(visibleIdeasSlice);
         }
-    }, [resolvedIdeas, currentPage]);
+    }, [ideas, currentPage]);
 
     const handleNextPage = () => {
         setCurrentPage((prevPage) =>
-            Math.min(
-                prevPage + 1,
-                Math.ceil(resolvedIdeas.length / cardsPerPage) - 1
-            )
+            Math.min(prevPage + 1, Math.ceil(ideas.length / cardsPerPage) - 1)
         );
     };
 
@@ -67,7 +51,7 @@ const IdeasContainer = ({ ideas }) => {
                     color="primary"
                     disabled={
                         currentPage ===
-                        Math.ceil(resolvedIdeas.length / cardsPerPage) - 1
+                        Math.ceil(ideas.length / cardsPerPage) - 1
                     }
                     onClick={handleNextPage}
                 >
