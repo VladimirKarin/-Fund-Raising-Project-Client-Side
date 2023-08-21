@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
 
-const ContainerPreviousIdea = (onClick, disabled) => {
+const IdeasContainerNavigationButton = ({ onClick, disabled }) => {
     return (
         <Button
             variant="outlined"
@@ -9,9 +9,9 @@ const ContainerPreviousIdea = (onClick, disabled) => {
             disabled={disabled}
             onClick={onClick}
         >
-            Previous
+            Next
         </Button>
     );
 };
 
-export default ContainerPreviousIdea;
+export default IdeasContainerNavigationButton;
